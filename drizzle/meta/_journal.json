@@ -15,6 +15,20 @@
       "when": 1713302676313,
       "tag": "0001_wooden_triton",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1713307899359,
+      "tag": "0002_noisy_virginia_dare",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1713308058484,
+      "tag": "0003_equal_manta",
+      "breakpoints": true
     }
   ]
 }
