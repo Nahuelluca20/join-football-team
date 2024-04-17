@@ -7,6 +7,7 @@ export const users = sqliteTable("user", {
   emailVerified: integer("emailVerified", {mode: "timestamp_ms"}),
   image: text("image"),
   availableNow: integer("available_now", {mode: "boolean"}).default(true),
+  position: text("position", {enum: ["mediocampo", "delantero", "defensor", "arquero"]}),
   liveIn: text("live_in", {
     enum: [
       "Ciudad de Mendoza",

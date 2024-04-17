@@ -5,7 +5,13 @@ export async function getPlayerAvailable() {
   const result = await db
     .select({
       userName: users.name,
-      user: users.name,
+      email: users.email,
+      available: users.availableNow,
+      image: users.image,
+      position: users.position,
+      liveIn: users.liveIn,
     })
     .from(users);
+
+  return result.length > 0 ? result : [];
 }

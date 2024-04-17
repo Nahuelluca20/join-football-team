@@ -3,13 +3,18 @@ import React from "react";
 import {Card, CardHeader, CardTitle, CardDescription, CardContent} from "@/components/ui/card";
 import {TableHeader, TableRow, TableHead, TableBody, TableCell, Table} from "@/components/ui/table";
 import {Badge} from "@/components/ui/badge";
+import {getPlayerAvailable} from "@/app/dashboard/queries";
 
-export default function AvailablePlayers() {
+export default async function AvailablePlayers() {
+  const players = await getPlayerAvailable();
+
+  console.log(players);
+
   return (
     <Card x-chunk="dashboard-05-chunk-3">
       <CardHeader className="px-7">
-        <CardTitle>Orders</CardTitle>
-        <CardDescription>Recent orders from your store.</CardDescription>
+        <CardTitle>Players Availables</CardTitle>
+        <CardDescription>Recent login players.</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>

@@ -43,6 +43,13 @@
       "when": 1713319532485,
       "tag": "0005_wooden_cammi",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1713320106499,
+      "tag": "0006_pink_bloodaxe",
+      "breakpoints": true
     }
   ]
 }
