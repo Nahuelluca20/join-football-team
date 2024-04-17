@@ -1,14 +1,5 @@
 import Link from "next/link";
-import {
-  Home,
-  Map,
-  LineChart,
-  Package,
-  Package2,
-  Settings,
-  ShoppingCart,
-  Users2,
-} from "lucide-react";
+import {Package2, Settings} from "lucide-react";
 
 import {Tooltip, TooltipContent, TooltipTrigger} from "@/components/ui/tooltip";
 import Header from "@/components/menu/header";

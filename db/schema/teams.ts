@@ -15,15 +15,15 @@ export const teams = sqliteTable("teams", {
 });
 
 export const playerRelations = relations(users, ({many}) => ({
-  playersToGroups: many(playersToGroups),
+  playersToTeams: many(playersToTeams),
 }));
 
 export const teamsRelations = relations(teams, ({many}) => ({
-  usersToGroups: many(playersToGroups),
+  playersToTeams: many(playersToTeams),
 }));
 
-export const playersToGroups = sqliteTable(
-  "users_to_groups",
+export const playersToTeams = sqliteTable(
+  "players_to_teams",
   {
     userId: integer("user_id")
       .notNull()
@@ -36,3 +36,14 @@ export const playersToGroups = sqliteTable(
     pk: primaryKey({columns: [t.userId, t.groupId]}),
   }),
 );
+
+export const playersToTeamsRelations = relations(playersToTeams, ({one}) => ({
+  group: one(teams, {
+    fields: [playersToTeams.groupId],
+    references: [teams.id],
+  }),
+  user: one(users, {
+    fields: [playersToTeams.userId],
+    references: [users.id],
+  }),
+}));

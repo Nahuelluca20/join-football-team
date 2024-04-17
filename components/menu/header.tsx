@@ -1,17 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Home,
-  LineChart,
-  Package,
-  Package2,
-  PanelLeft,
-  Search,
-  ShoppingCart,
-  Users2,
-  Map,
-} from "lucide-react";
+import {Home, Package2, PanelLeft, Search, Users2, Map} from "lucide-react";
 import {usePathname} from "next/navigation";
 import clsx from "clsx";
 
