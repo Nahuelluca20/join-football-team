@@ -8,10 +8,10 @@ export async function getPlayerAvailable() {
       email: users.email,
       available: users.availableNow,
       image: users.image,
-      position: users.position,
       liveIn: users.liveIn,
+      position: users.position,
     })
     .from(users);
 
-  return result.length > 0 ? result : [];
+  return result;
 }

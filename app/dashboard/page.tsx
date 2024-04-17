@@ -66,12 +66,12 @@ export default function page() {
         </div>
 
         {/* Players Avaible to play */}
-        <Tabs defaultValue="week">
+        <Tabs defaultValue="today">
           <div className="flex items-center">
             <TabsList>
-              <TabsTrigger value="week">Week</TabsTrigger>
-              <TabsTrigger value="month">Month</TabsTrigger>
-              <TabsTrigger value="year">Year</TabsTrigger>
+              <TabsTrigger value="today">Today</TabsTrigger>
+              {/* <TabsTrigger value="month">Month</TabsTrigger>
+              <TabsTrigger value="year">Year</TabsTrigger> */}
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
               <DropdownMenu>
@@ -95,7 +95,7 @@ export default function page() {
               </Button>
             </div>
           </div>
-          <TabsContent value="week">
+          <TabsContent value="today">
             <AvailablePlayers />
           </TabsContent>
         </Tabs>
