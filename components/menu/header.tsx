@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,7 +10,10 @@ import {
   Search,
   ShoppingCart,
   Users2,
+  Map,
 } from "lucide-react";
+import {usePathname} from "next/navigation";
+import clsx from "clsx";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -32,6 +36,26 @@ import {Input} from "@/components/ui/input";
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
 
 export default function Header() {
+  const routes = [
+    {
+      icon: <Home className="h-5 w-5" />,
+      href: "/dashboard",
+      name: "Home",
+    },
+    {
+      icon: <Map className="h-5 w-5" />,
+      href: "/dashboard/map",
+      name: "Map",
+    },
+    {
+      icon: <Users2 className="h-5 w-5" />,
+      href: "/dashboard/teams",
+      name: "Teams",
+    },
+  ];
+
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <Sheet>
@@ -44,44 +68,29 @@ export default function Header() {
         <SheetContent className="sm:max-w-xs" side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+              className="group  flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
               href="#"
             >
               <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
               <span className="sr-only">Acme Inc</span>
             </Link>
-            <Link
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              href="#"
-            >
-              <Home className="h-5 w-5" />
-              Dashboard
-            </Link>
-            <Link className="flex items-center gap-4 px-2.5 text-foreground" href="#">
-              <ShoppingCart className="h-5 w-5" />
-              Orders
-            </Link>
-            <Link
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              href="#"
-            >
-              <Package className="h-5 w-5" />
-              Products
-            </Link>
-            <Link
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              href="#"
-            >
-              <Users2 className="h-5 w-5" />
-              Customers
-            </Link>
-            <Link
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-              href="#"
-            >
-              <LineChart className="h-5 w-5" />
-              Settings
-            </Link>
+            {routes.map((itemLink, index) => (
+              <Link
+                key={`link-mobile-${index}`}
+                className={clsx(
+                  "flex items-center gap-4 py-1 px-2.5 text-foreground hover:text-foreground",
+                  {
+                    "text-muted-foreground": pathname !== itemLink.href,
+                    "bg-accent": pathname === itemLink.href,
+                  },
+                )}
+                href={itemLink.href}
+              >
+                {itemLink.icon}
+                {itemLink.name}
+                <span className="sr-only">{itemLink.name}</span>
+              </Link>
+            ))}
           </nav>
         </SheetContent>
       </Sheet>
