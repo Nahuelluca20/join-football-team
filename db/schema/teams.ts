@@ -8,10 +8,12 @@ import {users} from "./user";
 export const teams = sqliteTable("teams", {
   id: text("id")
     .$defaultFn(() => createId())
-    .primaryKey(),
+    .primaryKey()
+    .notNull(),
   players: integer("players", {mode: "number"}),
+  registeredPlayers: integer("registered_players", {mode: "number"}),
   nextMatch: integer("next_match", {mode: "timestamp"}),
-  nextPlace: integer("user_id").references(() => courtsOwners.id),
+  nextPlace: text("next_place").references(() => courtsOwners.id),
 });
 
 export const playerRelations = relations(users, ({many}) => ({
@@ -25,21 +27,21 @@ export const teamsRelations = relations(teams, ({many}) => ({
 export const playersToTeams = sqliteTable(
   "players_to_teams",
   {
-    userId: integer("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => users.id),
-    groupId: integer("group_id")
+    teamId: text("team_id")
       .notNull()
       .references(() => teams.id),
   },
   (t) => ({
-    pk: primaryKey({columns: [t.userId, t.groupId]}),
+    pk: primaryKey({columns: [t.userId, t.teamId]}),
   }),
 );
 
 export const playersToTeamsRelations = relations(playersToTeams, ({one}) => ({
-  group: one(teams, {
-    fields: [playersToTeams.groupId],
+  teams: one(teams, {
+    fields: [playersToTeams.teamId],
     references: [teams.id],
   }),
   user: one(users, {

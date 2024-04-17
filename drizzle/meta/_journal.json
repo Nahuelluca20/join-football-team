@@ -50,6 +50,34 @@
       "when": 1713320106499,
       "tag": "0006_pink_bloodaxe",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1713359525133,
+      "tag": "0007_damp_star_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1713359695253,
+      "tag": "0008_colorful_toad_men",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1713360441687,
+      "tag": "0009_dusty_sharon_carter",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1713360623180,
+      "tag": "0010_fast_medusa",
+      "breakpoints": true
     }
   ]
 }

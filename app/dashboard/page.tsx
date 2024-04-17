@@ -1,4 +1,5 @@
 import {File, ListFilter} from "lucide-react";
+import Link from "next/link";
 
 import {Button} from "@/components/ui/button";
 import {
@@ -29,29 +30,30 @@ export default function page() {
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
           <Card className="sm:col-span-2" x-chunk="dashboard-05-chunk-0">
             <CardHeader className="pb-3">
-              <CardTitle>Your Orders</CardTitle>
+              <CardTitle>Create a Team</CardTitle>
               <CardDescription className="max-w-lg text-balance leading-relaxed">
-                Introducing Our Dynamic Orders Dashboard for Seamless Management and Insightful
-                Analysis.
+                Create teams so that other players can join.
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Create New Order</Button>
+              <Button asChild>
+                <Link href={"/dashboard/teams"}>Create New Team</Link>
+              </Button>
             </CardFooter>
           </Card>
           <Card x-chunk="dashboard-05-chunk-1">
             <CardHeader className="pb-2">
-              <CardDescription>This Week</CardDescription>
-              <CardTitle className="text-4xl">$1,329</CardTitle>
+              <CardDescription>My Teams</CardDescription>
+              <CardTitle className="text-4xl">{3}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-xs text-muted-foreground">+25% from last week</div>
+              <div className="text-xs text-muted-foreground">you belong to 3 different teams</div>
             </CardContent>
             <CardFooter>
               <Progress aria-label="25% increase" value={25} />
             </CardFooter>
           </Card>
-          <Card x-chunk="dashboard-05-chunk-2">
+          {/* <Card x-chunk="dashboard-05-chunk-2">
             <CardHeader className="pb-2">
               <CardDescription>This Month</CardDescription>
               <CardTitle className="text-4xl">$5,329</CardTitle>
@@ -62,7 +64,7 @@ export default function page() {
             <CardFooter>
               <Progress aria-label="12% increase" value={12} />
             </CardFooter>
-          </Card>
+          </Card> */}
         </div>
 
         {/* Players Avaible to play */}
