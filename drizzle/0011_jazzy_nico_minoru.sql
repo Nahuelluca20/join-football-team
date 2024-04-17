@@ -1,0 +1,1 @@
+ALTER TABLE teams ADD `registered_players` integer;

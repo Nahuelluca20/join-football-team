@@ -9,8 +9,6 @@ import {getPlayerAvailable} from "@/app/dashboard/queries";
 export default async function AvailablePlayers() {
   const players = await getPlayerAvailable();
 
-  console.log(players);
-
   return (
     <Card x-chunk="dashboard-05-chunk-3">
       <CardHeader className="px-7">
