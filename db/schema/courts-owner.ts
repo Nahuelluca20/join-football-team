@@ -13,6 +13,7 @@ export const courtsOwners = sqliteTable("courts_owner", {
     .primaryKey(),
   direction: text("direction"),
   placeName: text("place_name"),
+  phoneNumber: text("phone_number"),
   description: text("description"),
   longitude: text("longitude"),
   latitude: text("latitude"),
