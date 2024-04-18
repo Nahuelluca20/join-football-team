@@ -1,0 +1,1 @@
+ALTER TABLE `courts_owner` RENAME COLUMN `json` TO `courts`;

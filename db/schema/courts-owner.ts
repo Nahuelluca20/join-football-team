@@ -14,6 +14,6 @@ export const courtsOwners = sqliteTable("courts_owner", {
   direction: text("direction"),
   longitude: text("longitude"),
   latitude: text("latitude"),
-  courts: blob("json", {mode: "json"}).$type<CourtType[]>(),
+  courts: blob("courts", {mode: "json"}).$type<CourtType[]>(),
   numCourts: integer("num_courts", {mode: "number"}),
 });
