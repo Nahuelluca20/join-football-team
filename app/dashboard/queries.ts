@@ -5,7 +5,7 @@ import {db} from "@/db";
 import {playersToTeams, teams} from "@/db/schema/teams";
 import {users} from "@/db/schema/user";
 
-export async function getPlayerAvailable() {
+export const getPlayerAvailable = async () => {
   const result = await db
     .select({
       userName: users.name,
@@ -18,9 +18,9 @@ export async function getPlayerAvailable() {
     .from(users);
 
   return result.length > 0 ? result : [];
-}
+};
 
-export async function getMyTeamsLength(id: string) {
+export const getMyTeamsLength = async (id: string) => {
   const result = db
     .select({
       teams: teams,
@@ -34,4 +34,4 @@ export async function getMyTeamsLength(id: string) {
   const resultLength = (await result).length;
 
   return resultLength;
-}
+};

@@ -129,13 +129,13 @@ export default function Header() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button className="overflow-hidden rounded-full" size="icon" variant="outline">
-            <Image
+            {/* <Image
               alt="Avatar"
               className="overflow-hidden rounded-full"
               height={36}
               src="/placeholder-user.jpg"
               width={36}
-            />
+            /> */}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
