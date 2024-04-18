@@ -1,9 +1,9 @@
-import Map from "@/components/maps/map";
+import MapContainer from "@/components/maps/map-container";
 
-export default function page() {
+export default function Page() {
   return (
-    <div>
-      <Map />
+    <div className="w-[600px] h-[600px]">
+      <MapContainer />
     </div>
   );
 }

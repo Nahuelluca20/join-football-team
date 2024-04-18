@@ -89,29 +89,29 @@ export default function Header() {
       <Breadcrumb className="hidden md:flex">
         <BreadcrumbList>
           {splitPathname.map((path, index) => {
-            return path === "" ? (
-              ""
-            ) : (
-              <>
-                <BreadcrumbItem key={`breadcrum-${index}`}>
-                  {splitPathname.length === index + 1 ? (
-                    <BreadcrumbPage>
+            return (
+              path !== "" && (
+                <div key={`breadcrum-${index}`} className="flex items-center ">
+                  <BreadcrumbItem>
+                    {splitPathname.length === index + 1 ? (
+                      <BreadcrumbPage>
+                        <BreadcrumbLink asChild>
+                          <Link href={path === "dashboard" ? `/${path}` : `/dashboard/${path}`}>
+                            {path.replace(/^\w/, (c) => c.toUpperCase())}
+                          </Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbPage>
+                    ) : (
                       <BreadcrumbLink asChild>
                         <Link href={path === "dashboard" ? `/${path}` : `/dashboard/${path}`}>
                           {path.replace(/^\w/, (c) => c.toUpperCase())}
                         </Link>
                       </BreadcrumbLink>
-                    </BreadcrumbPage>
-                  ) : (
-                    <BreadcrumbLink asChild>
-                      <Link href={path === "dashboard" ? `/${path}` : `/dashboard/${path}`}>
-                        {path.replace(/^\w/, (c) => c.toUpperCase())}
-                      </Link>
-                    </BreadcrumbLink>
-                  )}
-                </BreadcrumbItem>
-                {splitPathname.length !== index + 1 && <BreadcrumbSeparator />}
-              </>
+                    )}
+                  </BreadcrumbItem>
+                  {splitPathname.length !== index + 1 && <BreadcrumbSeparator className="ml-2" />}
+                </div>
+              )
             );
           })}
         </BreadcrumbList>
