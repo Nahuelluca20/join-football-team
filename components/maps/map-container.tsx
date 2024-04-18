@@ -18,7 +18,7 @@ export default function MapContainer() {
   const latitude = searchParams.get("latitude") ?? -68.88015997301575;
 
   return (
-    <div className="h-full rounded-md overflow-hidden">
+    <div className="h-full rounded-md overflow-hidden z-1">
       <Map latitude={Number(latitude)} longitude={Number(longitude)} />
     </div>
   );

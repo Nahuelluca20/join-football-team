@@ -25,6 +25,7 @@ export default function Map({longitude, latitude}: MapInterface) {
   return (
     <MapContainer
       center={[longitude, latitude]}
+      className="z-0"
       scrollWheelZoom={true}
       style={{height: "100%", width: "100%"}}
       zoom={17}

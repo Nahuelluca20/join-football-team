@@ -23,7 +23,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {Input} from "@/components/ui/input";
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet";
+import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet";
 
 export default function Header() {
   const routes = [
@@ -67,21 +67,22 @@ export default function Header() {
               <span className="sr-only">Acme Inc</span>
             </Link>
             {routes.map((itemLink, index) => (
-              <Link
-                key={`link-mobile-${index}`}
-                className={clsx(
-                  "flex items-center gap-4 py-1 px-2.5 text-foreground hover:text-foreground",
-                  {
-                    "text-muted-foreground": pathname !== itemLink.href,
-                    "bg-accent": pathname === itemLink.href,
-                  },
-                )}
-                href={itemLink.href}
-              >
-                {itemLink.icon}
-                {itemLink.name}
-                <span className="sr-only">{itemLink.name}</span>
-              </Link>
+              <SheetClose key={`link-mobile-${index}`} asChild>
+                <Link
+                  className={clsx(
+                    "flex items-center gap-4 py-1 px-2.5 text-foreground hover:text-foreground",
+                    {
+                      "text-muted-foreground": pathname !== itemLink.href,
+                      "bg-accent": pathname === itemLink.href,
+                    },
+                  )}
+                  href={itemLink.href}
+                >
+                  {itemLink.icon}
+                  {itemLink.name}
+                  <span className="sr-only">{itemLink.name}</span>
+                </Link>
+              </SheetClose>
             ))}
           </nav>
         </SheetContent>
