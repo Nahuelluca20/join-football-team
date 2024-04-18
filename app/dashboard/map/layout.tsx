@@ -11,7 +11,7 @@ export default async function layout({children}: {children: React.ReactNode}) {
   const courts = await getCourtsOwnersDetails();
 
   return (
-    <Card className="flex gap-4 h-full min-h-[700px] p-4">
+    <Card className="flex flex-col md:flex-row gap-4 h-full min-h-[700px] p-4">
       <aside className="flex gap-2">
         <div className="min-w-[100px] max-w-[350px] space-y-3">
           {courts.length > 0 &&
