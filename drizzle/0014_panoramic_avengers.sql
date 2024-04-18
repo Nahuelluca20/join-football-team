@@ -1,0 +1,1 @@
+ALTER TABLE courts_owner ADD `place_name` text;

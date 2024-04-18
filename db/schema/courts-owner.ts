@@ -12,6 +12,7 @@ export const courtsOwners = sqliteTable("courts_owner", {
     .$defaultFn(() => createId())
     .primaryKey(),
   direction: text("direction"),
+  placeName: text("place_name"),
   description: text("description"),
   longitude: text("longitude"),
   latitude: text("latitude"),

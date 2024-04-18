@@ -97,14 +97,14 @@ export default function Header() {
                   {splitPathname.length === index + 1 ? (
                     <BreadcrumbPage>
                       <BreadcrumbLink asChild>
-                        <Link href={path === "dashboard" ? `/${path}` : `${path}`}>
+                        <Link href={path === "dashboard" ? `/${path}` : `/dashboard/${path}`}>
                           {path.replace(/^\w/, (c) => c.toUpperCase())}
                         </Link>
                       </BreadcrumbLink>
                     </BreadcrumbPage>
                   ) : (
                     <BreadcrumbLink asChild>
-                      <Link href={path === "dashboard" ? `/${path}` : `${path}`}>
+                      <Link href={path === "dashboard" ? `/${path}` : `/dashboard/${path}`}>
                         {path.replace(/^\w/, (c) => c.toUpperCase())}
                       </Link>
                     </BreadcrumbLink>
