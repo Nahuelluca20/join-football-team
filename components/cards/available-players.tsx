@@ -28,29 +28,27 @@ export default async function AvailablePlayers() {
           </TableHeader>
           <TableBody>
             {players.map((player, index) => (
-              <>
-                <TableRow key={`player-${index}`}>
-                  <TableCell>
-                    <div className="font-medium">{player.userName}</div>
-                    <div className="hidden text-sm text-muted-foreground md:inline">
-                      {player.email}
-                    </div>
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell">{player.position}</TableCell>
-                  <TableCell className="sm:table-cell">
-                    <Badge className="text-xs" variant={player.available ? "outline" : "default"}>
-                      {player.available ? "disponible" : "ocupado"}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="md:table-cell">{player.liveIn}</TableCell>
-                  <TableCell className="md:flex justify-end hidden ">
-                    <Avatar>
-                      <AvatarImage alt="@shadcn" src={player.image} />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                  </TableCell>
-                </TableRow>
-              </>
+              <TableRow key={`player-${index}`}>
+                <TableCell>
+                  <div className="font-medium">{player.userName}</div>
+                  <div className="hidden text-sm text-muted-foreground md:inline">
+                    {player.email}
+                  </div>
+                </TableCell>
+                <TableCell className="hidden sm:table-cell">{player.position}</TableCell>
+                <TableCell className="sm:table-cell">
+                  <Badge className="text-xs" variant={player.available ? "outline" : "default"}>
+                    {player.available ? "disponible" : "ocupado"}
+                  </Badge>
+                </TableCell>
+                <TableCell className="md:table-cell">{player.liveIn}</TableCell>
+                <TableCell className="md:flex justify-end hidden ">
+                  <Avatar>
+                    <AvatarImage alt="@shadcn" src={player.image} />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </TableCell>
+              </TableRow>
             ))}
           </TableBody>
         </Table>
