@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import {useSearchParams} from "next/navigation";
-import {useMemo} from "react";
+import {Suspense, useMemo} from "react";
 
 export default function MapContainer() {
   const searchParams = useSearchParams();
@@ -19,7 +19,9 @@ export default function MapContainer() {
 
   return (
     <div className="h-full rounded-md overflow-hidden z-1">
-      <Map latitude={Number(latitude)} longitude={Number(longitude)} />
+      <Suspense>
+        <Map latitude={Number(latitude)} longitude={Number(longitude)} />
+      </Suspense>
     </div>
   );
 }
