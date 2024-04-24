@@ -44,7 +44,7 @@ export default async function AvailablePlayers() {
                 <TableCell className="md:table-cell">{player.liveIn}</TableCell>
                 <TableCell className="md:flex justify-end hidden ">
                   <Avatar>
-                    <AvatarImage alt="@shadcn" src={player.image} />
+                    <AvatarImage alt="@shadcn" src={player.image || ""} />
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </TableCell>
