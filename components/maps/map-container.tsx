@@ -19,9 +19,7 @@ export default function MapContainer() {
 
   return (
     <div className="h-full rounded-md overflow-hidden z-1">
-      <Suspense>
-        <Map latitude={Number(latitude)} longitude={Number(longitude)} />
-      </Suspense>
+      <Map latitude={Number(latitude)} longitude={Number(longitude)} />
     </div>
   );
 }
