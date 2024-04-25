@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import {useSearchParams} from "next/navigation";
-import {Suspense, useMemo} from "react";
+import {useMemo} from "react";
 
 export default function MapContainer() {
   const searchParams = useSearchParams();

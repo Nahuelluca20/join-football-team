@@ -10,6 +10,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
+import {createTeam} from "@/app/dashboard/teams/queries";
 
 export default function CreateTeam() {
   return (
@@ -19,31 +20,33 @@ export default function CreateTeam() {
         <CardDescription>Enter the information for your new team.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="team-name">Team Name</Label>
-          <Input required id="team-name" placeholder="Acme Inc" />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="description">Description</Label>
-          <Textarea required id="description" placeholder="Enter a description for your team." />
-        </div>
-        <div className="space-y-2">
-          <Label>Team Members</Label>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="name-1">Name</Label>
-              <Input required id="name-1" placeholder="Enter name" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email-1">Email</Label>
-              <Input required id="email-1" placeholder="Enter email" type="email" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="role-1">Role</Label>
-              <Input required id="role-1" placeholder="Enter role" />
+        <form action={createTeam} className="grid gap-2 w-full md:max-w-full lg:max-w-[800px]">
+          <div className="space-y-2">
+            <Label htmlFor="team-name">Team Name</Label>
+            <Input required id="team-name" placeholder="Acme Inc" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="description">Description</Label>
+            <Textarea required id="description" placeholder="Enter a description for your team." />
+          </div>
+          <div className="space-y-2">
+            <Label>Team Members</Label>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="name-1">Name</Label>
+                <Input required id="name-1" placeholder="Enter name" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email-1">Email</Label>
+                <Input required id="email-1" placeholder="Enter email" type="email" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="role-1">Role</Label>
+                <Input required id="role-1" placeholder="Enter role" />
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </CardContent>
       <CardFooter>
         <Button variant="ghost">Cancel</Button>
