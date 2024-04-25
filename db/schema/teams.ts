@@ -10,6 +10,7 @@ export const teams = sqliteTable("teams", {
     .$defaultFn(() => createId())
     .primaryKey()
     .notNull(),
+  teamName: text("team_name"),
   players: integer("players", {mode: "number"}),
   registeredPlayers: integer("registered_players", {mode: "number"}),
   nextMatch: integer("next_match", {mode: "timestamp"}),
